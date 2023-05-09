@@ -165,8 +165,10 @@ footer {
         justify-content: space-between;
         margin: auto;
         max-width: 1000px;
+        max-height: 300px;
         padding-top: 15px;
         padding-bottom: 15px;
+        overflow-y: hidden;
 
         ul {
 
@@ -177,12 +179,7 @@ footer {
             }
         }
 
-        .footer-right {
 
-            img {
-                translate: -50px;
-            }
-        }
     }
 
 }

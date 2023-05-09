@@ -60,7 +60,29 @@ Route::get('/Characters', function () {
 
 Route::get('/Movies', function () {
 
-    return view('Movies');
+    $links = [
+        ['title' => 'Characters', 'route' => 'Characters'],
+        ['title' => 'Movies', 'route' => 'Movies'],
+        ['title' => 'Tv', 'route' => 'Tv'],
+    ];
+
+    $footerLinks = [
+        ['name' => 'Comics'],
+        ['name' => 'Movies'],
+        ['name' => 'Tv'],
+        ['name' => 'Games'],
+        ['name' => 'Videos'],
+        ['name' => 'News'],
+        ['name' => 'Shop'],
+        ['name' => 'Jobs'],
+    ];
+
+    $data = [
+        'links' => $links,
+        'footerLinks' => $footerLinks
+    ];
+
+    return view('Movies', $data);
 })->name('Movies');
 
 Route::get('/Tv', function () {
