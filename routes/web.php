@@ -26,10 +26,29 @@ Route::get('/', function () {
     ];
 
 
+    $images = [
+        ['name' => 'mimes:resources/img/buy-comics-merchandise.png'],
+        ['name' => 'buy-comics-merchandise.png'],
+    ];
+
+    $footerLinks = [
+        ['name' => 'Comics'],
+        ['name' => 'Movies'],
+        ['name' => 'Tv'],
+        ['name' => 'Games'],
+        ['name' => 'Videos'],
+        ['name' => 'News'],
+        ['name' => 'Shop'],
+        ['name' => 'Jobs'],
+    ];
+
     $data = [
         'links' => $links,
-        'comics' => $comics
+        'comics' => $comics,
+        'images' => $images,
+        'footerLinks' => $footerLinks
     ];
+
 
     return view('home', $data);
 });
