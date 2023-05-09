@@ -13,6 +13,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('home');
+    $links = [
+        ['title' => 'Characters', 'route' => 'Characters'],
+        ['title' => 'Movies', 'route' => 'Movies'],
+        ['title' => 'Tv', 'route' => 'Tv'],
+    ];
+
+
+    $data = [
+        'links' => $links
+    ];
+
+    return view('home', $data);
 });
+
+Route::get('/Characters', function () {
+
+    return view('Characters');
+})->name('Characters');
+
+Route::get('/Movies', function () {
+
+    return view('Movies');
+})->name('Movies');
+
+Route::get('/Tv', function () {
+
+    return view('Tv');
+})->name('Tv');
