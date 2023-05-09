@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
+
+    $comics = config('comics');
+
+
     $links = [
         ['title' => 'Characters', 'route' => 'Characters'],
         ['title' => 'Movies', 'route' => 'Movies'],
@@ -23,7 +27,8 @@ Route::get('/', function () {
 
 
     $data = [
-        'links' => $links
+        'links' => $links,
+        'comics' => $comics
     ];
 
     return view('home', $data);
