@@ -32,23 +32,15 @@
             <div class="row">
 
                 <div class="links-card">
-                    <div class="links-inner">
-                        <img src="{{ Vite::asset('resources/img/buy-comics-digital-comics.png') }}" alt="img">
-                    </div>
-                    <div class="links-inner">
-                        <img src="{{ Vite::asset('resources/img/buy-comics-merchandise.png') }}" alt="img">
-                    </div>
-                    <div class="links-inner">
-                        <img src="{{ Vite::asset('resources/img/buy-comics-subscriptions.png') }}" alt="img">
-                    </div>
-                    <div class="links-inner">
-                        <img src="{{ Vite::asset('resources/img/buy-comics-shop-locator.png') }}" alt="img">
-                    </div>
-                    <div class="links-inner">
-                        <img src="{{ Vite::asset('resources/img/buy-comics-digital-comics.png') }}" alt="img">
-                    </div>
-                </div>
+                    @foreach ($icons as $singleIcons) 
 
+                        <div class="links-inner">
+                            <img src="{{Vite::asset('resources/img/' . $singleIcons['src'])}}" alt="">
+                            {{$singleIcons['text']}}
+                        </div>
+                    
+                    @endforeach
+                </div>
             </div>
 
         </div>

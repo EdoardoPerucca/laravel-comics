@@ -13,79 +13,89 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/', function () {
-
-    $comics = config('comics');
-
-
-    $links = [
-        ['title' => 'Characters', 'route' => 'Characters'],
-        ['title' => 'Movies', 'route' => 'Movies'],
-        ['title' => 'Tv', 'route' => 'Tv'],
-    ];
+$links = [
+    ['title' => 'Home', 'route' => 'Home'],
+    ['title' => 'Movies', 'route' => 'Movies'],
+    ['title' => 'Tv', 'route' => 'Tv'],
+];
 
 
-    $images = [
-        ['name' => 'mimes:resources/img/buy-comics-merchandise.png'],
-        ['name' => 'buy-comics-merchandise.png'],
-    ];
+$comics = config('comics');
 
-    $footerLinks = [
-        ['name' => 'Comics'],
-        ['name' => 'Movies'],
-        ['name' => 'Tv'],
-        ['name' => 'Games'],
-        ['name' => 'Videos'],
-        ['name' => 'News'],
-        ['name' => 'Shop'],
-        ['name' => 'Jobs'],
-    ];
 
-    $data = [
-        'links' => $links,
-        'comics' => $comics,
-        'images' => $images,
-        'footerLinks' => $footerLinks
-    ];
+$icons = [
+    [
+        'src' => 'buy-comics-digital-comics.png',
+        'text' => 'Digital Comics'
+    ],
+    [
+        'src' => 'buy-comics-merchandise.png',
+        'text' => 'Dc Merchandise'
+    ],
+    [
+        'src' => 'buy-comics-subscriptions.png',
+        'text' => 'Subscription'
+    ],
+    [
+        'src' => 'buy-comics-shop-locator.png',
+        'text' => 'Comic Shop Locator'
+    ],
+    [
+        'src' => 'buy-dc-power-visa.svg',
+        'text' => 'Dc Power Visa'
+    ],
+];
 
+$footerLinks = [
+    [
+        'name' => 'Comics',
+        'text' =>
+        [
+            'ciao',
+            'tu'
+        ],
+    ],
+    [
+        'name' => 'movie',
+        'text' => 'ciao'
+    ],
+    [
+        'name' => 'tv',
+        'text' => 'ciao'
+    ],
+];
+
+$footerIcons = [
+    ['src' => 'footer-facebook.png'],
+    ['src' => 'footer-twitter.png'],
+    ['src' => 'footer-youtube.png'],
+    ['src' => 'footer-pinterest.png'],
+    ['src' => 'footer-periscope.png'],
+];
+
+$data = [
+    'links' => $links,
+    'comics' => $comics,
+    'footerLinks' => $footerLinks,
+    'icons' => $icons,
+    'footerIcons' => $footerIcons
+];
+
+Route::get('/Home', function () use ($data) {
 
     return view('home', $data);
-});
+})->name('Home');
 
-Route::get('/Characters', function () {
 
-    return view('Characters');
-})->name('Characters');
 
-Route::get('/Movies', function () {
 
-    $links = [
-        ['title' => 'Characters', 'route' => 'Characters'],
-        ['title' => 'Movies', 'route' => 'Movies'],
-        ['title' => 'Tv', 'route' => 'Tv'],
-    ];
-
-    $footerLinks = [
-        ['name' => 'Comics'],
-        ['name' => 'Movies'],
-        ['name' => 'Tv'],
-        ['name' => 'Games'],
-        ['name' => 'Videos'],
-        ['name' => 'News'],
-        ['name' => 'Shop'],
-        ['name' => 'Jobs'],
-    ];
-
-    $data = [
-        'links' => $links,
-        'footerLinks' => $footerLinks
-    ];
+Route::get('/Movies', function () use ($data) {
 
     return view('Movies', $data);
 })->name('Movies');
 
-Route::get('/Tv', function () {
 
-    return view('Tv');
+Route::get('/Tv', function () use ($data) {
+
+    return view('Tv', $data);
 })->name('Tv');
